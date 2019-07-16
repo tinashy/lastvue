@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h5>Cart</h5>
+        <div class="text-center list-group-item active">
+            <h5>Cart - ${{total}}</h5>
+        </div>
         <ul class="list-group" v-for="item in items" :key="item.id">
             <li class="list-group-item">
                 {{item.title}} - ${{item.price}}
@@ -13,7 +15,12 @@
 
 <script>
 export default {
-    props: ['items']
+    props: ['items'],
+    computed: {
+        total() {
+            return this.items.reduce((acc, item) => acc + Number(item.price), 0)
+        }
+    }
 }
 </script>
 
