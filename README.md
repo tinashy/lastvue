@@ -1,2 +1,2 @@
 # lastvue
- the last vue project (shopping cart)
+ the last vue project (simple shopping cart)
