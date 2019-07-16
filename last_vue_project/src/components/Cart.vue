@@ -9,6 +9,9 @@
                 <button @click="$emit('remove-from-cart', item)" type="button" class="btn btn-outline-danger btn-sm float-right">Remove From Cart</button>
             </li>
         </ul>
+        <div>
+            <button :disabled="items.length === 0" type="button" @click="$emit('pay')" class="btn btn-success btn-lg btn-block">Pay Now</button>
+        </div>
     </div>
 </template>
 

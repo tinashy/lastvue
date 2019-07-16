@@ -11,7 +11,7 @@
       <div class="col-md-4">
         <div class="row">
           <div class="col">
-            <Cart v-on:remove-from-cart="removeFromCart($event)" :items="cart" />
+            <Cart v-on:pay="pay" v-on:remove-from-cart="removeFromCart($event)" :items="cart" />
           </div>
         </div>
       </div>
@@ -49,6 +49,10 @@ export default {
     },
     removeFromCart(product) {
       this.cart = this.cart.filter(item => item.id !== product.id)
+    },
+    pay() {
+      this.cart = []
+      alert('Shopping Completed!')
     }
   }
 }
@@ -59,8 +63,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>
