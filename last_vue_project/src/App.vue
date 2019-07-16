@@ -4,7 +4,7 @@
       <div class="col-md-7">
         <div class="row">
           <div class="col-md-6" v-for="product in products" :key="product.id">
-            <product :product="product" />
+            <product v-on:add-to-cart="addToCart(product)" :product="product" />
           </div>
         </div>
       </div>
@@ -24,7 +24,13 @@ export default {
   },
   data() {
     return {
-      products
+      products,
+      cart: []
+    }
+  },
+  methods: {
+    addToCart(product) {
+      this.cart.push(product)
     }
   }
 }
