@@ -1,17 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="row">
+      <div class="col-md-7">
+        <div class="row">
+          <div class="col md-6">
+            <product />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5"></div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Product from './components/Product.vue'
+import products from './products.json'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Product
+  },
+  data() {
+    return products
   }
 }
 </script>
