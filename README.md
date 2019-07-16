@@ -1,5 +1,6 @@
 # lastvueproject
  the last vue project (shopping cart)
+ 
  please be comfortable pointing out any vulnerabilities or bad practices in my code
  
  IG: tinashy_daniel
