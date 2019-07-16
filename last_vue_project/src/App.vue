@@ -1,14 +1,20 @@
 <template>
   <div id="app">
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-8">
         <div class="row">
           <div class="col-md-6" v-for="product in products" :key="product.id">
-            <product :isInCart="isInCart(product)" v-on:add-to-cart="addToCart(product)" :product="product" />
+            <Product :isInCart="isInCart(product)" v-on:add-to-cart="addToCart(product)" :product="product" />
           </div>
         </div>
       </div>
-      <div class="col-md-5"></div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col">
+            <Cart v-on:remove-from-cart="removeFromCart($event)" :items="cart" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -16,11 +22,13 @@
 <script>
 import Product from './components/Product.vue'
 import products from './products.json'
+import Cart from './components/Cart.vue'
 
 export default {
   name: 'app',
   components: {
-    Product
+    Product,
+    Cart
   },
   data() {
     return {
@@ -38,6 +46,9 @@ export default {
         return true
       }
       return false
+    },
+    removeFromCart(product) {
+      this.cart = this.cart.filter(item => item.id !== product.id)
     }
   }
 }
