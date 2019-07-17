@@ -4,7 +4,8 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-6" v-for="product in products" :key="product.id">
-            <Product :isInCart="isInCart(product)" v-on:add-to-cart="addToCart(product)" :product="product" />
+            <Product :is-in-cart="isInCart(product)" @add-to-cart="addToCart(product)" :product="product" />
+            <!-- always use kebab case for html attribs -->
           </div>
         </div>
       </div>
